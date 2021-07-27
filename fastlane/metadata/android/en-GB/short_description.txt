@@ -1,1 +1,1 @@
-ReactNativeStarterKit
+JoyChant

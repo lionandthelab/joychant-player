@@ -1,5 +1,5 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-  package="com.reactnativestarterkit">
+  package="com.joychant">
 
     <uses-permission android:name="android.permission.INTERNET" />
 

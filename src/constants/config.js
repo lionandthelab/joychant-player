@@ -2,7 +2,7 @@ const isDevEnv = process.env.NODE_ENV === 'development';
 
 export default {
   // App Details
-  appName: 'ReactNativeStarterKit',
+  appName: 'JoyChant',
 
   // Build Configuration - eg. Debug or Release?
   isDevEnv,

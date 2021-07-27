@@ -1,7 +1,7 @@
 ANDROID_FILE="android/app/build.gradle"
 TEMP_ANDROID_FILE="${ANDROID_FILE}.txt"
 
-IOS_FILE="ios/ReactNativeStarterKit/Info.plist"
+IOS_FILE="ios/JoyChant/Info.plist"
 TEMP_IOS_FILE="${IOS_FILE}.txt"
 
 IOS_BUILD_NUMBER=1
