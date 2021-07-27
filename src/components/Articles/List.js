@@ -1,27 +1,117 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Actions } from 'react-native-router-flux';
-import { FlatList, TouchableOpacity, Image } from 'react-native';
-import {
-  Container, Card, CardItem, Body, Text, Button,
-} from 'native-base';
+import { FlatList, TouchableOpacity, Image, ScrollView } from 'react-native';
+import { Container, Card, CardItem, Body, Text, Button } from 'native-base';
 import { Error, Spacer } from '../UI';
 import { errorMessages } from '../../constants/messages';
 
-const ArticlesList = ({
-  error, loading, listFlat, reFetch, meta,
-}) => {
-  if (error) {
-    return <Error content={error} tryAgain={reFetch} />;
-  }
+const ArticlesList = ({ error, loading, listFlat, reFetch, meta }) => {
+  const placeholder = false;
+  const id = 1;
+  const name = 'name';
 
-  if (listFlat.length < 1) {
-    return <Error content={errorMessages.articlesEmpty} />;
-  }
+  // if (error) {
+  //   return <Error content={error} tryAgain={reFetch} />;
+  // }
+
+  // if (listFlat.length < 1) {
+  //   return <Error content={errorMessages.articlesEmpty} />;
+  // }
 
   return (
-    <Container style={{ padding: 10 }}>
-      <FlatList
+    <ScrollView>
+      <Container style={{ padding: 10 }}>
+        <Card style={{ opacity: placeholder ? 0.3 : 1, height: 240 }}>
+          <TouchableOpacity
+            activeOpacity={0.8}
+            onPress={() => Actions.articlesSingle({ id: 1, title: '조이챈트 Season1' })}
+            style={{ flex: 1 }}
+          >
+            <CardItem cardBody>
+              <Image
+                source={{ uri: 'season1' }}
+                style={{
+                  height: 200,
+                  width: null,
+                  flex: 1,
+                  overflow: 'hidden',
+                  borderRadius: 5,
+                  borderBottomLeftRadius: 0,
+                  borderBottomRightRadius: 0,
+                }}
+              />
+            </CardItem>
+            <CardItem cardBody>
+              <Body style={{ paddingHorizontal: 15 }}>
+                <Spacer size={10} />
+                <Text style={{ fontWeight: '800' }}>조이챈트 Season1</Text>
+                <Spacer size={5} />
+              </Body>
+            </CardItem>
+          </TouchableOpacity>
+        </Card>
+
+        <Card style={{ opacity: placeholder ? 0.3 : 1, height: 240 }}>
+          <TouchableOpacity
+            activeOpacity={0.8}
+            onPress={() => Actions.articlesSingle({ id: 2, title: '조이챈트 Season2' })}
+            style={{ flex: 1 }}
+          >
+            <CardItem cardBody>
+              <Image
+                source={{ uri: 'season2' }}
+                style={{
+                  height: 200,
+                  width: null,
+                  flex: 1,
+                  overflow: 'hidden',
+                  borderRadius: 5,
+                  borderBottomLeftRadius: 0,
+                  borderBottomRightRadius: 0,
+                }}
+              />
+            </CardItem>
+            <CardItem cardBody>
+              <Body style={{ paddingHorizontal: 15 }}>
+                <Spacer size={10} />
+                <Text style={{ fontWeight: '800' }}>조이챈트 Season2</Text>
+                <Spacer size={5} />
+              </Body>
+            </CardItem>
+          </TouchableOpacity>
+        </Card>
+
+        <Card style={{ opacity: placeholder ? 0.3 : 1, height: 240 }}>
+          <TouchableOpacity
+            activeOpacity={0.8}
+            onPress={() => Actions.articlesSingle({ id: 3, title: '조이챈트 Season3' })}
+            style={{ flex: 1 }}
+          >
+            <CardItem cardBody>
+              <Image
+                source={{ uri: 'season3' }}
+                style={{
+                  height: 200,
+                  width: null,
+                  flex: 1,
+                  overflow: 'hidden',
+                  borderRadius: 5,
+                  borderBottomLeftRadius: 0,
+                  borderBottomRightRadius: 0,
+                }}
+              />
+            </CardItem>
+            <CardItem cardBody>
+              <Body style={{ paddingHorizontal: 15 }}>
+                <Spacer size={10} />
+                <Text style={{ fontWeight: '800' }}>조이챈트 Season3</Text>
+                <Spacer size={5} />
+              </Body>
+            </CardItem>
+          </TouchableOpacity>
+        </Card>
+        {/* <FlatList
         data={listFlat}
         onRefresh={() => reFetch({ forceSync: true })}
         refreshing={loading}
@@ -78,10 +168,9 @@ const ArticlesList = ({
               </Button>
             </React.Fragment>
           ) : null}
-      />
-
-      <Spacer size={20} />
-    </Container>
+      /> */}
+      </Container>
+    </ScrollView>
   );
 };
 

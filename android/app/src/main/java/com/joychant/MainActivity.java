@@ -3,6 +3,8 @@ package com.joychant;
 import com.facebook.react.ReactActivity;
 import android.os.Bundle;
 import org.devio.rn.splashscreen.SplashScreen;
+import android.content.Intent; // <--- import
+import android.content.res.Configuration; // <--- import
 
 public class MainActivity extends ReactActivity {
   // Show RN Splash Screen on launch

@@ -1,39 +1,23 @@
 import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { useForm } from 'react-hook-form';
-import {
-  Container,
-  Content,
-  Text,
-  Form,
-  Item,
-  Label,
-  Input,
-  Button,
-} from 'native-base';
+import { Container, Content, Text, Form, Item, Label, Input, Button } from 'native-base';
 import { Messages, Header, Spacer } from '../UI';
 import { errorMessages } from '../../constants/messages';
 
-const ArticlesForm = ({
-  error, loading, success, onFormSubmit, defaultValues,
-}) => {
-  const {
-    register, handleSubmit, errors, setValue,
-  } = useForm({ defaultValues });
+const ArticlesForm = ({ error, loading, success, onFormSubmit, defaultValues }) => {
+  // const { register, handleSubmit, errors, setValue } = useForm({ defaultValues });
 
-  useEffect(() => {
-    register({ name: 'email' }, { required: errorMessages.missingEmail });
-  }, [register]);
+  // useEffect(() => {
+  //   register({ name: 'email' }, { required: errorMessages.missingEmail });
+  // }, [register]);
 
   return (
     <Container>
       <Content padder>
-        <Header
-          title="Example form"
-          content="When you submit the form, it'll simply save to your redux store"
-        />
+        <Header title="설정" content="설정" />
 
-        {error && <Messages message={error} />}
+        {/* {error && <Messages message={error} />}
         {loading && <Messages type="info" message="Loading..." />}
         {success && <Messages type="success" message={success} />}
 
@@ -56,7 +40,7 @@ const ArticlesForm = ({
           <Button block onPress={handleSubmit(onFormSubmit)} disabled={loading}>
             <Text>{loading ? 'Loading' : 'Submit'}</Text>
           </Button>
-        </Form>
+        </Form> */}
       </Content>
     </Container>
   );

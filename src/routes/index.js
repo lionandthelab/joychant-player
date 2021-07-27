@@ -11,17 +11,12 @@ import AboutComponent from '../components/About';
 const Index = (
   <Stack hideNavBar>
     <Scene hideNavBar>
-      <Tabs
-        key="tabbar"
-        swipeEnabled
-        type="replace"
-        showLabel={false}
-        {...DefaultProps.tabProps}
-      >
+      <Tabs key="tabbar" swipeEnabled type="refresh" showLabel={false} {...DefaultProps.tabProps}>
         <Stack
           key="home"
-          title={AppConfig.appName}
-          icon={() => <Icon name="planet" {...DefaultProps.icons} />}
+          title="홈"
+          // title=""{AppConfig.appName}
+          icon={() => <Icon name="home" {...DefaultProps.icons} />}
           {...DefaultProps.navbarProps}
         >
           <Scene key="home" component={AboutComponent} />
@@ -29,8 +24,8 @@ const Index = (
 
         <Stack
           key="articlesList"
-          title="Articles List"
-          icon={() => <Icon name="list" {...DefaultProps.icons} />}
+          title="재생목록"
+          icon={() => <Icon name="play" {...DefaultProps.icons} />}
           {...DefaultProps.navbarProps}
         >
           <Scene key="articlesList" component={ArticlesList} />
@@ -39,8 +34,8 @@ const Index = (
 
         <Stack
           key="form"
-          title="Articles Form"
-          icon={() => <Icon name="add" {...DefaultProps.icons} />}
+          title="설정"
+          icon={() => <Icon name="settings" {...DefaultProps.icons} />}
           {...DefaultProps.navbarProps}
         >
           <Scene key="form" component={ArticlesForm} />
