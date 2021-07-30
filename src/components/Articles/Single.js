@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import PropTypes from 'prop-types';
-import { Image, StyleSheet, ScrollView, TouchableOpacity, Alert } from 'react-native';
+import { View, Image, StyleSheet, ScrollView, TouchableOpacity, Alert } from 'react-native';
 import {
   Button,
   Container,
@@ -39,11 +39,7 @@ const ArticlesSingle = ({ error, loading, article, reFetch, id, title }) => {
       });
     });
     setVideoTitle(tmp);
-
-    return () => {};
   }, [id]);
-
-  useEffect(() => {}, [idxToPlay]);
 
   // if (error) {
   //   return <Error content={error} tryAgain={reFetch} />;
@@ -112,21 +108,16 @@ const ArticlesSingle = ({ error, loading, article, reFetch, id, title }) => {
         )} */}
         <Spacer size={10} />
         {playAll ? (
-          <YoutubePlayer ref={playerRef} height={250} play={false} playList={playList} />
+          <YoutubePlayer ref={playerRef} height={250} play={true} playList={playList} />
         ) : (
           <YoutubePlayer ref={playerRef} height={250} play={false} videoId={playList[idxToPlay]} />
         )}
 
-        <Spacer size={10} />
-        <Button onPress={() => setPlayAll(!playAll)}>
-          {playAll ? <Icon name="stop-outline"></Icon> : <Icon name="play-outline" />}
-          {playAll ? <Text> 한곡씩 듣기 </Text> : <Text> 전체 듣기 </Text>}
-        </Button>
-
-        <ScrollView horizontal={true} style={styles.thumbView}>
+        <ScrollView horizontal={true} style={[styles.thumbView]}>
           {playList.map((vid, i) => {
             return (
               <TouchableOpacity
+                disabled={playAll}
                 onPress={() => {
                   setIdxToPlay(i);
                 }}
@@ -136,12 +127,21 @@ const ArticlesSingle = ({ error, loading, article, reFetch, id, title }) => {
                   source={{ uri: `https://img.youtube.com/vi/${vid}/0.jpg` }}
                   style={{ width: 200, height: 110, margin: 1 }}
                 />
-                <Text style={{ width: 200 }}>{videoTitle[i]}</Text>
+                {/* <Text style={{ width: 200 }}>{videoTitle[i]['title']}</Text> */}
               </TouchableOpacity>
             );
           })}
         </ScrollView>
         <Spacer size={20} />
+        <Button
+          full={true}
+          onPress={() => {
+            setPlayAll(!playAll);
+          }}
+        >
+          {playAll ? <Icon name="stop-outline"></Icon> : <Icon name="play-outline" />}
+          {playAll ? <Text>선택 재생</Text> : <Text>전곡 재생</Text>}
+        </Button>
       </Content>
     </Container>
   );
